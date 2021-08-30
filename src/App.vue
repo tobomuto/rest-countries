@@ -1,30 +1,50 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+
+  <Navbar/>
   <router-view/>
+
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+
+import Navbar from '@/components/Navbar.vue'
+
+export default {
+  components: {Navbar}
 }
 
-#nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style lang="scss">
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@font-face {
+  font-family: "nunito-extraBold";
+  src: url("./assets/fonts/NunitoSans-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "nunito-light";
+  src: url("./assets/fonts/NunitoSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "nunito-semiBold";
+  src: url("./assets/fonts/NunitoSans-SemiBold.ttf") format("truetype");
+}
+
+html {
+  width: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  font-family: $font300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $fontLight;
+  background-color: $lightBg;
+  min-height: 100vh;
 }
 </style>
