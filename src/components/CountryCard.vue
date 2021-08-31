@@ -1,5 +1,6 @@
 <template>
   <div class="country">
+    <img :src="country.flag" :alt="flagAlt">
     <div class="country__infos">
       <h4 class="country__name">{{ country.name }}</h4>
       <h6 class="country__population">Population: <span>{{ country.population }}</span></h6>
@@ -13,6 +14,11 @@
 export default {
   name: 'CountryCard',
   props: ['country'],
+  computed: {
+    flagAlt() {
+      return this.country.name + "'s flag"
+    }
+  }
 }
 </script>
 
