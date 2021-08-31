@@ -1,17 +1,18 @@
 <template>
   <div class="country">
     <div class="country__infos">
-      <h4 class="country__name">Country Name</h4>
-      <h6 class="country__population">Population: <span>population</span></h6>
-      <h6 class="country__region">Region: <span>region</span></h6>
-      <h6 class="country__capital">Capital: <span>capital</span></h6>
+      <h4 class="country__name">{{ country.name }}</h4>
+      <h6 class="country__population">Population: <span>{{ country.population }}</span></h6>
+      <h6 class="country__region">Region: <span>{{ country.region }}</span></h6>
+      <h6 class="country__capital">Capital: <span>{{ country.capital }}</span></h6>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CountryCard'
+  name: 'CountryCard',
+  props: ['country'],
 }
 </script>
 

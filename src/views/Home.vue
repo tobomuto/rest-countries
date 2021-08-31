@@ -4,7 +4,11 @@
       <SearchBar/>
       <FilterBar/>
     </div>
-    <CountryCard/>
+    <CountryCard
+      v-for="country, index in countries"
+      :key=index
+      :country=country
+    />
   </div>
 </template>
 
@@ -20,6 +24,19 @@ export default {
     SearchBar,
     FilterBar,
     CountryCard
+  },
+  data () {
+    return {
+    }
+  },
+  mounted() {
+      this.$store.dispatch('loadCountries') // dispatch loading
+  },
+  computed: {
+    countries() {
+      console.log(this.$store.state.countries)
+      return this.$store.state.countries;
+    },
   }
 }
 </script>
