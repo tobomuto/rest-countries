@@ -25,11 +25,13 @@ export default {
 <style lang="scss" scoped>
 
 .country {
+  // justify-self: center;
   display: flex;
   flex-direction: column;
   background-color: white;
   box-sizing: border-box;
   border-radius: 8px;
+  // width: 250px;
   .country__infos {
     padding: 3rem 3rem 5rem 3rem;
     .country__name {

@@ -4,11 +4,15 @@
       <SearchBar/>
       <FilterBar/>
     </div>
-    <CountryCard
-      v-for="country, index in countries"
-      :key=index
-      :country=country
-    />
+    <div class="countrys-grid">
+      <CountryCard
+        class="country-card"
+        v-for="country, index in countries"
+        :key=index
+        :country=country
+      />
+    </div>
+
   </div>
 </template>
 
@@ -42,5 +46,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bars {
+  margin-bottom: 30px;
+}
+.countrys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+  gap: 30px;
+  justify-content: center;
+}
+
+@media screen and (min-width:640px) {
+
+}
 
 </style>
