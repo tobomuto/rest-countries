@@ -53,6 +53,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
   gap: 30px;
+  padding: 0 5%;
   justify-content: center;
 }
 

@@ -19,8 +19,8 @@ export default {
 #navbar {
   display: flex;
   justify-content: space-between;
-  padding: 30px 10px;
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+  padding: 30px 5%;
+  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.1);
   background-color: white;
   .navbar__brand-name {
     font-family: $font800;
