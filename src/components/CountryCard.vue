@@ -1,5 +1,8 @@
 <template>
-  <div class="country">
+  <div 
+    class="country"
+    @click="goToCountry"
+  >
     <img :src="country.flag" :alt="flagAlt">
     <div class="country__infos">
       <h4 class="country__name">{{ country.name }}</h4>
@@ -14,6 +17,11 @@
 export default {
   name: 'CountryCard',
   props: ['country'],
+  methods: {
+    goToCountry() {
+      this.$router.push('/country/' + this.country.name)
+    }
+  },
   computed: {
     flagAlt() {
       return this.country.name + "'s flag"
@@ -31,6 +39,7 @@ export default {
   background-color: white;
   box-sizing: border-box;
   border-radius: 8px;
+  cursor: pointer;
   // width: 250px;
   .country__infos {
     padding: 3rem 3rem 5rem 3rem;
