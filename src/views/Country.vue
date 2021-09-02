@@ -1,6 +1,6 @@
 <template>
   <div class="country-details">
-    <button class="country-details__backButton" @click="$router.push('/')">Back</button>
+    <button class="country-details__backButton" @click="$router.push('/')"><ion-icon name="arrow-back"></ion-icon> Back</button>
     <div class="country-details__infos-container">
       <img :src="country.flag" :alt="flagAlt">
       <div class="country-details__infos-wrapper">

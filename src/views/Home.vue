@@ -45,16 +45,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bars {
-  margin-bottom: 30px;
+.home {
+  padding: 5%;
+  .bars {
+    margin-bottom: 30px;
+  }
+  .countrys-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+    gap: 30px;
+    justify-content: center;
+  }
 }
-.countrys-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
-  gap: 30px;
-  padding: 0 5%;
-  justify-content: center;
-}
+
 
 @media screen and (min-width:640px) {
 

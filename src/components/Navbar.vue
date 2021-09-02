@@ -1,7 +1,7 @@
 <template>
   <nav id="navbar">
     <span class="navbar__brand-name">Where in the world?</span>
-    <button class="navbar__dark-mode">Dark Mode</button>
+    <button class="navbar__dark-mode"><ion-icon name="moon-outline"></ion-icon> <ion-icon name="moon"></ion-icon>Dark Mode</button>
   </nav>
 </template>
 
