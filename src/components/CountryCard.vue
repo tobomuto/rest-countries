@@ -19,7 +19,7 @@ export default {
   props: ['country'],
   methods: {
     goToCountry() {
-      this.$router.push('/country/' + this.country.name)
+      this.$router.push('/country/' + this.country.alpha3Code)
     }
   },
   computed: {
