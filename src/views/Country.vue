@@ -1,30 +1,36 @@
 <template>
   <div class="country-details">
     <button class="country-details__backButton" @click="$router.push('/')">Back</button>
-    <img :src="country.flag" :alt="flagAlt">
-    <div class="country-details__infos">
-      <h4 class="country-details__name">{{ country.name }}</h4>
-      <h6 class="country-details__nativeName">Native Name: <span>{{ country.nativeName }}</span></h6>
-      <h6 class="country-details__population">Population: <span>{{ country.population }}</span></h6>
-      <h6 class="country-details__region">Region: <span>{{ country.region }}</span></h6>
-      <h6 class="country-details__subrRegion">Sub Region: <span>{{ country.subregion }}</span></h6>
-      <h6 class="country-details__capital">Capital: <span>{{ country.capital }}</span></h6>
-    </div>
-    <div class="country-details__infos">
-      <h6 class="country-details__domain">Top Level Domain: <span>{{ topLevelDomain }}</span></h6>
-      <h6 class="country-details__currencies">Currencies: <span>{{ currencies }}</span></h6>
-      <h6 class="country-details__languages">Languages: <span>{{ languages }}</span></h6>
-    </div>
-    <div class="country-details__borders-container">
-      <h5 class="country-details__borders">Border Countries:</h5>
-      <div class="country-details__buttons">
-        <button
-          v-for="border in borders" 
-          :key="border.name"
-          @click="goToCountry(border.iso3)"
-        >
-          {{ border.name }}
-        </button>
+    <div class="country-details__infos-container">
+      <img :src="country.flag" :alt="flagAlt">
+      <div class="country-details__infos-wrapper">
+        <h4 class="country-details__name">{{ country.name }}</h4>
+        <div class="country-details__infos-row">
+          <div class="country-details__infos">
+            <h6 class="country-details__nativeName">Native Name: <span>{{ country.nativeName }}</span></h6>
+            <h6 class="country-details__population">Population: <span>{{ country.population }}</span></h6>
+            <h6 class="country-details__region">Region: <span>{{ country.region }}</span></h6>
+            <h6 class="country-details__subrRegion">Sub Region: <span>{{ country.subregion }}</span></h6>
+            <h6 class="country-details__capital">Capital: <span>{{ country.capital }}</span></h6>
+          </div>
+          <div class="country-details__infos">
+            <h6 class="country-details__domain">Top Level Domain: <span>{{ topLevelDomain }}</span></h6>
+            <h6 class="country-details__currencies">Currencies: <span>{{ currencies }}</span></h6>
+            <h6 class="country-details__languages">Languages: <span>{{ languages }}</span></h6>
+          </div>
+        </div>
+        <div class="country-details__borders-container">
+          <h5 class="country-details__borders">Border Countries:</h5>
+          <div class="country-details__buttons">
+            <button
+              v-for="border in borders" 
+              :key="border.name"
+              @click="goToCountry(border.iso3)"
+            >
+              {{ border.name }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -109,8 +115,6 @@ export default {
 <style lang="scss" scoped>
 
 .country-details {
-  display: flex;
-  flex-direction: column;
   padding: 0 5%;
   margin-bottom: 6rem;
   .country-details__backButton {
@@ -127,13 +131,13 @@ export default {
   img {
     margin: 3rem 0;
   }
+  .country-details__name {
+    font-family: $font800;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
   .country-details__infos {
-    margin: 3rem 0;
-    .country-details__name {
-      font-family: $font800;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-    }
+    margin: 4rem 0;
     h6 {
       // margin: 0;
       font-family: $font600;
@@ -149,20 +153,41 @@ export default {
     }
     .country-details__buttons {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; 
       gap: 10px;
       margin-top: 2rem;
-      button {
-        font-family: $font300;
-        background-color: white;
-        min-height: 30px;
-        border: none;
-        border-radius: 2px;
-        -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
-        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+    }
+  }
+}
+
+@media screen and (min-width:640px) {
+.country-details__infos-container {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+  img {
+    margin: 0;
+    // max-width: 50%;
+    // height: min-content;
+  }
+  .country-details__infos-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .country-details__infos-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .country-details__infos {
+        margin: 0;
       }
     }
   }
+
+}
 }
 
 </style>

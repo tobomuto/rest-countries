@@ -46,5 +46,14 @@ html {
   color: $fontLight;
   background-color: $lightBg;
   min-height: 100vh;
+    button {
+      font-family: $font300;
+      background-color: white;
+      min-height: 30px;
+      border: none;
+      border-radius: 4px;
+      -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+      box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+    }
 }
 </style>
