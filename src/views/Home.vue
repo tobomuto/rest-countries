@@ -2,12 +2,14 @@
   <div class="home">
     <div class="bars">
       <SearchBar/>
-      <FilterBar/>
+      <FilterBar
+        @filterRegion='filterRegion'
+      />
     </div>
     <div class="countrys-grid">
       <CountryCard
         class="country-card"
-        v-for="country, index in countries"
+        v-for="country, index in filteredCountries"
         :key=index
         :country=country
       />
@@ -31,22 +33,34 @@ export default {
   },
   data () {
     return {
+      selectedRegion: 'All'
     }
   },
   mounted() {
       this.$store.dispatch('loadCountries') // dispatch loading
   },
   computed: {
-    countries() {
-      return this.$store.state.countries;
-    },
+    filteredCountries() {
+      if (this.selectedRegion === 'All') {
+        return this.$store.state.countries;
+      } else {
+        return this.$store.state.countries.filter((country) => {
+          return country.region.match(this.selectedRegion);
+        });
+      }
+    }
+  },
+  methods: {
+    filterRegion(region) {
+      this.selectedRegion = region;
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .home {
-  padding: 5%;
+  padding: 10% 5%;
   .bars {
     margin-bottom: 30px;
   }
@@ -58,9 +72,11 @@ export default {
   }
 }
 
-
 @media screen and (min-width:640px) {
-
+.bars {
+  display: flex;
+  justify-content: space-between;
+}
 }
 
 </style>

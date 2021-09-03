@@ -1,22 +1,84 @@
 <template>
-  <div id="filterBar">
-    <select name="regions" class="filter-region">
-      <option value="all">All</option>
-      <option value="africa">Africa</option>
-      <option value="america">America</option>
-      <option value="asia">Asia</option>
-      <option value="europe">Europe</option>
-      <option value="oceania">Oceania</option>
-    </select>
+  <div 
+    id="filterBar"
+    @click="showSelectBox"
+  >
+    <span class="filterSelected">Filter by Region</span>
+    <ion-icon name="chevron-down-outline"></ion-icon>
+    <div class="filterBox" @click.stop>
+      <div class="selectBox">
+        <span @click="selectRegion('All')">All</span>
+        <span @click="selectRegion('Africa')">Africa</span>
+        <span @click="selectRegion('America')">America</span>
+        <span @click="selectRegion('Asia')">Asia</span>
+        <span @click="selectRegion('Europe')">Europe</span>
+        <span @click="selectRegion('Oceania')">Oceania</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'FilterBar'
+  name: 'FilterBar',
+  data() {
+    return {
+      selectedRegion: ''
+    }
+  },
+  methods: {
+    showSelectBox() {
+      const filterBox = document.querySelector(".filterBox")
+      filterBox.classList.toggle("show");
+    },
+    selectRegion(region) {
+      this.$emit('filterRegion', region)
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 
+#filterBar {
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 1px 5px 0px rgb(0 0 0 / 40%);
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 6px;
+  padding: 2rem;
+  font-family: $font600;
+  cursor: pointer;
+  .filterBox {
+    position: absolute;
+    width: 100%;
+    top: 110%;
+    left: 0;
+    max-height: 0rem;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 5px 0px rgb(0 0 0 / 40%);
+    transition: all .3s;
+    .selectBox {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+  }
+  .show {
+    max-height: 20rem !important;
+  }
+}
+
+@media screen and (min-width:640px) {
+  #filterBar {
+    width: 30%;
+    margin-bottom: 0;
+  }
+}
 </style>
