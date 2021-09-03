@@ -1,13 +1,32 @@
 <template>
   <div id="searchBar">
     <ion-icon name="search"></ion-icon>
-    <input type="text" placeholder="Search for a country...">
+    <input 
+      type="text" 
+      placeholder="Search for a country..."
+      v-model="search"
+    >
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SearchBar'
+  name: 'SearchBar',
+  data: () => {
+    return {
+      searchValue: ''
+    }
+  },
+  computed: {
+    search: {
+      get() {
+        return this.searchValue;
+      },
+      set(updated) {
+        this.$emit("input", updated);
+      }
+    }
+  }
 }
 </script>
 

@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <div class="bars">
-      <SearchBar/>
+      <SearchBar
+        @input="inputSearch"
+      />
       <FilterBar
         @filterRegion='filterRegion'
       />
@@ -31,9 +33,10 @@ export default {
     FilterBar,
     CountryCard
   },
-  data () {
+  data: () => {
     return {
-      selectedRegion: 'All'
+      search: "",
+      selectedRegion: "All"
     }
   },
   mounted() {
@@ -42,15 +45,23 @@ export default {
   computed: {
     filteredCountries() {
       if (this.selectedRegion === 'All') {
-        return this.$store.state.countries;
+        return this.$store.state.countries.filter((country) => {
+
+          return this.$store.state.countries && country.name.toLowerCase().match(this.search);
+        })
+        
       } else {
         return this.$store.state.countries.filter((country) => {
-          return country.region.match(this.selectedRegion);
+          return country.region.match(this.selectedRegion) && country.name.toLowerCase().match(this.search);
         });
       }
     }
   },
   methods: {
+    inputSearch(search) {
+      let searchToLowerString = search.toLowerCase();
+      this.search = searchToLowerString
+    },
     filterRegion(region) {
       this.selectedRegion = region;
     }
