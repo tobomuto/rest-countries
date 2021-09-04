@@ -33,6 +33,8 @@ export default {
     },
     selectRegion(region) {
       this.$emit('filterRegion', region)
+      const filterBox = document.querySelector(".filterBox")
+      filterBox.classList.remove("show");
     }
   }
 }
@@ -43,7 +45,7 @@ export default {
 #filterBar {
   position: relative;
   box-sizing: border-box;
-  box-shadow: 0 1px 5px 0px rgb(0 0 0 / 40%);
+  box-shadow: 0px 0px 5px 4px rgba(123, 123, 123, 0.1);
   width: 60%;
   display: flex;
   align-items: center;
@@ -62,7 +64,7 @@ export default {
     overflow: hidden;
     border-radius: 6px;
     background-color: white;
-    box-shadow: 0 1px 5px 0px rgb(0 0 0 / 40%);
+    box-shadow: 0px 0px 5px 4px rgba(123, 123, 123, 0.1);
     transition: all .3s;
     .selectBox {
       display: flex;
