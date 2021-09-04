@@ -45,6 +45,9 @@ export default {
   border-radius: 8px;
   cursor: pointer;
   // width: 250px;
+  img {
+    border-radius: 8px 8px 0 0;
+  }
   .country__infos {
     padding: 3rem 3rem 5rem 3rem;
     .country__name {
