@@ -4,7 +4,8 @@
     :class="{'dark-theme-element' : isDarkMode }"
     @click="showSelectBox"
   >
-    <span class="filterSelected">Filter by Region</span>
+    <span class="filterSelected" v-if="!selectedRegion">Filter by Region</span>
+    <span class="filterSelected" v-else >{{selectedRegion}}</span>
     <ion-icon name="chevron-down-outline"></ion-icon>
     <div 
       class="filterBox" @click.stop
@@ -41,6 +42,7 @@ export default {
       filterBox.classList.toggle("show");
     },
     selectRegion(region) {
+      this.selectedRegion = region;
       this.$emit('filterRegion', region)
       const filterBox = document.querySelector(".filterBox")
       filterBox.classList.remove("show");
