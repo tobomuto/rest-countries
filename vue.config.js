@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/tip-calculator-app-main/'
+    ? '/rest-countries/'
     : '/',
   css: {
     loaderOptions: {
