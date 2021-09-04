@@ -30,14 +30,14 @@ Users should be able to:
 
 ### Screenshots
 
-![](./src/screenshots/desktop-light.png)
-![](./src/screenshots/home-mobile-light.png)
-![](./src/screenshots/desktop-dark.png)
-![](./src/screenshots/home-mobile-dark.png)
-![](./src/screenshots/details-desktop-light.png)
-![](./src/screenshots/details-mobile-light.png)
-![](./src/screenshots/details-desktop-dark.png)
-![](./src/screenshots/details-mobile-dark.png)
+![](./screenshots/desktop-light.png)
+![](./screenshots/home-mobile-light.png)
+![](./screenshots/desktop-dark.png)
+![](./screenshots/home-mobile-dark.png)
+![](./screenshots/details-desktop-light.png)
+![](./screenshots/details-mobile-light.png)
+![](./screenshots/details-desktop-dark.png)
+![](./screenshots/details-mobile-dark.png)
 
 ### Links
 
