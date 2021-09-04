@@ -1,6 +1,7 @@
 <template>
   <div 
     class="country"
+    :class="{'dark-theme-element' : isDarkMode }"
     @click="goToCountry"
   >
     <img :src="country.flag" :alt="flagAlt">
@@ -25,6 +26,9 @@ export default {
   computed: {
     flagAlt() {
       return this.country.name + "'s flag"
+    },
+    isDarkMode() {
+      return this.$store.state.darkMode;
     }
   }
 }

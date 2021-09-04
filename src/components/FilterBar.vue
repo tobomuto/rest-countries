@@ -1,11 +1,15 @@
 <template>
   <div 
     id="filterBar"
+    :class="{'dark-theme-element' : isDarkMode }"
     @click="showSelectBox"
   >
     <span class="filterSelected">Filter by Region</span>
     <ion-icon name="chevron-down-outline"></ion-icon>
-    <div class="filterBox" @click.stop>
+    <div 
+      class="filterBox" @click.stop
+      :class="{'dark-theme-element' : isDarkMode }"
+    >
       <div class="selectBox">
         <span @click="selectRegion('All')">All</span>
         <span @click="selectRegion('Africa')">Africa</span>
@@ -24,6 +28,11 @@ export default {
   data() {
     return {
       selectedRegion: ''
+    }
+  },
+  computed: {
+    isDarkMode() {
+      return this.$store.state.darkMode;
     }
   },
   methods: {
@@ -45,7 +54,7 @@ export default {
 #filterBar {
   position: relative;
   box-sizing: border-box;
-  box-shadow: 0px 0px 5px 4px rgba(123, 123, 123, 0.1);
+  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.1);
   width: 60%;
   display: flex;
   align-items: center;
@@ -64,7 +73,7 @@ export default {
     overflow: hidden;
     border-radius: 6px;
     background-color: white;
-    box-shadow: 0px 0px 5px 4px rgba(123, 123, 123, 0.1);
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.1);
     transition: all .3s;
     .selectBox {
       display: flex;

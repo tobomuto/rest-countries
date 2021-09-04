@@ -1,5 +1,5 @@
 <template>
-  <div id="searchBar">
+  <div id="searchBar" :class="{'dark-theme-element' : isDarkMode }">
     <ion-icon name="search"></ion-icon>
     <input 
       type="text" 
@@ -25,6 +25,9 @@ export default {
       set(updated) {
         this.$emit("input", updated);
       }
+    },
+    isDarkMode() {
+      return this.$store.state.darkMode;
     }
   }
 }
@@ -34,7 +37,7 @@ export default {
 
 #searchBar {
   box-sizing: border-box;
-  box-shadow: 0px 0px 5px 4px rgba(123, 123, 123, 0.1);
+  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.1);
   width: 100%;
   display: flex;
   align-items: center;
@@ -55,6 +58,15 @@ export default {
     padding: 2rem;
     color: $lightInput;
     font-family: $font600;
+  }
+}
+
+.dark-theme-element {
+  ion-icon {
+    color: white !important;
+  }
+  input {
+    color: white !important;
   }
 }
 
