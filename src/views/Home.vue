@@ -16,7 +16,6 @@
         :country=country
       />
     </div>
-
   </div>
 </template>
 
@@ -71,7 +70,7 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  padding: 10% 5%;
+  padding: 30px 5%;
   .bars {
     margin-bottom: 30px;
   }
