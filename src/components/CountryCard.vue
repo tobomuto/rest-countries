@@ -37,14 +37,13 @@ export default {
 <style lang="scss" scoped>
 
 .country {
-  // justify-self: center;
   display: flex;
   flex-direction: column;
   background-color: white;
   box-sizing: border-box;
   border-radius: 8px;
   cursor: pointer;
-  // width: 250px;
+  box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.1);
   img {
     border-radius: 8px 8px 0 0;
   }
