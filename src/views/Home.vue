@@ -14,14 +14,14 @@
       class="loader"
     />
 
-    <div class="countrys-grid">
+    <ul class="countrys-grid">
       <CountryCard
         class="country-card"
         v-for="country, index in filteredCountries"
         :key=index
         :country=country
       />
-    </div>
+    </ul>
   </div>
 </template>
 

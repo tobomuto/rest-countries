@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <li 
     class="country"
     :class="{'dark-theme-element' : isDarkMode }"
     @click="goToCountry"
@@ -11,7 +11,7 @@
       <h6 class="country__region">Region: <span>{{ country.region }}</span></h6>
       <h6 class="country__capital">Capital: <span>{{ country.capital }}</span></h6>
     </div>
-  </div>
+  </li>
 </template>
 
 <script>
