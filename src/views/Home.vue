@@ -8,6 +8,12 @@
         @filterRegion='filterRegion'
       />
     </div>
+
+    <Loader
+      v-if="loadingStatus"
+      class="loader"
+    />
+
     <div class="countrys-grid">
       <CountryCard
         class="country-card"
@@ -24,13 +30,15 @@
 import SearchBar from '@/components/SearchBar.vue'
 import FilterBar from '@/components/FilterBar.vue'
 import CountryCard from '@/components/CountryCard.vue'
+import Loader from '@/components/Loader.vue'
 
 export default {
   name: 'Home',
   components: {
     SearchBar,
     FilterBar,
-    CountryCard
+    CountryCard,
+    Loader
   },
   data: () => {
     return {
@@ -54,6 +62,9 @@ export default {
           return country.region.match(this.selectedRegion) && country.name.toLowerCase().match(this.search);
         });
       }
+    },
+    loadingStatus() {
+      return this.$store.getters.loadingStatus;
     }
   },
   methods: {
@@ -73,6 +84,13 @@ export default {
   padding: 30px 5%;
   .bars {
     margin-bottom: 30px;
+  }
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
   }
   .countrys-grid {
     display: grid;

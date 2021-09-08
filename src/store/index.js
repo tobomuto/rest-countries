@@ -12,6 +12,9 @@ export default createStore({
     },
     setDarkMode(state) {
       state.darkMode = !state.darkMode;
+    },
+    loadingStatus(state, newloadingStatus) {
+      state.loadingStatus = newloadingStatus;
     }
   },
   actions: {
@@ -19,14 +22,21 @@ export default createStore({
       commit('setDarkMode')
     },
     loadCountries({commit}) {
+      commit('loadingStatus', true)
       axios
       .get('https://restcountries.eu/rest/v2/all')
       .then(response => {
         commit('setCountries', response.data)
+        commit('loadingStatus', false)
       })
       .catch(error => {
         console.log(error)
       })
+    }
+  },
+  getters: {
+    loadingStatus (state) {
+      return state.loadingStatus
     }
   },
   modules: {
