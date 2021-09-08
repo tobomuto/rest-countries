@@ -97,6 +97,12 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
     gap: 30px;
     justify-content: center;
+    .country-card {
+      transition: 0.3s;
+    }
+    .country-card:hover {
+      transform: scale(1.1, 1.1);
+    }
   }
 }
 
