@@ -2,7 +2,7 @@
   <div class="country-details">
     <button class="country-details__backButton" @click="$router.push('/')"><ion-icon name="arrow-back"></ion-icon> Back</button>
     <div class="country-details__infos-container">
-      <img :src="country.flag" :alt="flagAlt">
+      <img :src="country.flags.png" :alt="flagAlt">
       <div class="country-details__infos-wrapper">
         <h4 class="country-details__name">{{ country.name }}</h4>
         <div class="country-details__infos-row">
@@ -59,7 +59,7 @@ export default {
   },
   beforeMount() {
     axios
-      .get('https://restcountries.eu/rest/v2/alpha/' + this.$route.params.code)
+      .get('https://restcountries.com/v2/alpha/' + this.$route.params.code)
       .then(response => {
         this.country = response.data
         this.topLevelDomain = response.data.topLevelDomain[0]
