@@ -4,7 +4,7 @@
     :class="{'dark-theme-element' : isDarkMode }"
     @click="goToCountry"
   >
-    <img :src="country.flag" :alt="flagAlt">
+    <img :src="country.flags.png" :alt="flagAlt">
     <div class="country__infos">
       <h4 class="country__name">{{ country.name }}</h4>
       <h6 class="country__population">Population: <span>{{ country.population }}</span></h6>
