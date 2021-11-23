@@ -41,7 +41,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [GitHub Pages](https://tobomuto.github.io/rest-countries/)
+- Live Site URL: [GitHub Pages](https://tobomuto.github.io/backstagetalks-clone/)
 
 ### Built with
 
